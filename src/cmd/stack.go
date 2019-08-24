@@ -35,7 +35,7 @@ Shows information about the current stack of changes.`,
 }
 
 func getBranchInfo() []branchInfo {
-	var info []branchInfo
+	info := []branchInfo{}
 	currentBranch := git.GetCurrentBranchName()
 	for _, branch := range git.GetAncestorBranches(currentBranch) {
 		info = append(info, branchInfo{Branch: branch})
