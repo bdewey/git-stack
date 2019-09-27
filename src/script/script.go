@@ -82,3 +82,20 @@ func RunCommandSafe(cmd ...string) {
 	err := RunCommand(cmd...)
 	exit.If(err)
 }
+
+func RunCommandWithCombinedOutput(cmd ...string) ([]byte, error) {
+	PrintCommand(cmd...)
+	if dryrun.IsActive() {
+		if len(cmd) == 3 && cmd[0] == "git" && cmd[1] == "checkout" {
+			dryrun.SetCurrentBranchName(cmd[2])
+		}
+		return nil, nil
+	}
+	// Windows commands run inside CMD
+	// because opening browsers is done via "start"
+	if runtime.GOOS == "windows" {
+		cmd = append([]string{"cmd", "/C"}, cmd...)
+	}
+	subProcess := exec.Command(cmd[0], cmd[1:]...) // #nosec
+	return subProcess.CombinedOutput()
+}

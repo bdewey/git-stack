@@ -2,21 +2,27 @@ package cmd
 
 import (
 	"fmt"
-	"unicode/utf8"
+	"os"
+	"strings"
+	"text/tabwriter"
 
-	"github.com/bdewey/git-stack/src/cfmt"
 	"github.com/bdewey/git-stack/src/drivers"
 	"github.com/bdewey/git-stack/src/git"
+	"github.com/bdewey/git-stack/src/script"
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
-
-	"strings"
 )
 
+// branchInfo contains all of the information needed to display a branch.
 type branchInfo struct {
-	Branch    string
+	// Branch is the name of the branch.
+	Branch string
+	// IsCurrent is true if this is the user's current branch.
 	IsCurrent bool
-	PrInfo    string
+	// PrInfo is the name and number of a PR to merge this branch into its parent, if such a PR exists.
+	PrInfo string
+	// git log --oneline output of the commits that are unique to this branch
+	BranchCommits []string
 }
 
 var stackCmd = &cobra.Command{
@@ -34,6 +40,7 @@ Shows information about the current stack of changes.`,
 	},
 }
 
+// getBranchInfo returns a slice with branchInfo structures for all branches between the current branch and master.
 func getBranchInfo() []branchInfo {
 	info := []branchInfo{}
 	currentBranch := git.GetCurrentBranchName()
@@ -54,58 +61,34 @@ func getBranchInfo() []branchInfo {
 			if canMerge {
 				info[i].PrInfo = defaultCommitMessage
 			}
+			branchCommits, _ := script.RunCommandWithCombinedOutput("git", "log", "--no-merges", "--oneline", info[i-1].Branch+".."+info[i].Branch)
+			info[i].BranchCommits = strings.Split(string(branchCommits), "\n")
 		}
 	}
 	return info
 }
 
 func printBranchInfo(branchInfo []branchInfo) {
-	longestBranchRuneCount := utf8.RuneCountInString("Branch")
-	longestPrString := 0
-	for _, info := range branchInfo {
-		currentRuneCount := utf8.RuneCountInString(info.Branch)
-		// The current branch needs to display "* " at the start
-		// TODO: Factor "* " into a constant where I can find its rune length
-		if info.IsCurrent {
-			currentRuneCount += 2
-		}
-		// Always allow for 2 spaces after the end of the string
-		currentRuneCount += 2
-		if currentRuneCount > longestBranchRuneCount {
-			longestBranchRuneCount = currentRuneCount
-		}
-		currentPrStringCount := utf8.RuneCountInString(info.PrInfo)
-		if currentPrStringCount > longestPrString {
-			longestPrString = currentPrStringCount
-		}
-	}
-
-	fmt.Print("Branch")
-	fmt.Print(strings.Repeat(" ", longestBranchRuneCount-utf8.RuneCountInString("Branch")))
-	if longestPrString > 0 {
-		fmt.Print("Github PR")
-	}
-	fmt.Println("")
-	fmt.Print(strings.Repeat("=", longestBranchRuneCount-2))
-	fmt.Print("  ")
-	fmt.Println(strings.Repeat("=", longestPrString))
+	w := tabwriter.NewWriter(os.Stdout, 0, 4, 0, ' ', 0)
+	fmt.Fprintln(w, "\t Branch\t Github PR")
 
 	for _, info := range branchInfo {
+		var currentMarker string
 		if info.IsCurrent {
-			cfmt.Print("* ")
+			currentMarker = "*"
+		} else {
+			currentMarker = " "
 		}
 		branchColor := color.New(color.Bold)
 		if info.IsCurrent {
 			branchColor = branchColor.Add(color.FgCyan)
 		}
-		cfmt.Print(branchColor.Sprintf(info.Branch))
-		spacesToPrint := longestBranchRuneCount - utf8.RuneCountInString(info.Branch)
-		if info.IsCurrent {
-			spacesToPrint -= 2
+		fmt.Fprintln(w, currentMarker, "\t", branchColor.Sprint(info.Branch), "\t ", info.PrInfo)
+		for _, commit := range info.BranchCommits {
+			fmt.Fprintln(w, "\t\t ", commit)
 		}
-		cfmt.Print(strings.Repeat(" ", spacesToPrint))
-		cfmt.Println(info.PrInfo)
 	}
+	w.Flush()
 }
 
 func init() {

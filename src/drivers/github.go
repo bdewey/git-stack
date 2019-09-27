@@ -132,7 +132,7 @@ func (d *githubCodeHostingDriver) getPullRequests(branch, parentBranch string) (
 	pullRequests, _, err := d.client.PullRequests.List(context.Background(), d.owner, d.repository, &github.PullRequestListOptions{
 		Base:  parentBranch,
 		Head:  d.owner + ":" + branch,
-		State: "open",
+		State: "",
 	})
 	return pullRequests, err
 }
