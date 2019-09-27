@@ -20,7 +20,7 @@ type branchInfo struct {
 }
 
 var stackCmd = &cobra.Command{
-	Use:   "stack",
+	Use:   "list",
 	Short: "Display the current working stack",
 	Long: `Display the current working stack
 
