@@ -12,8 +12,8 @@ import (
 
 var promptForParent bool
 
-var hackCmd = &cobra.Command{
-	Use:   "hack <branch>",
+var startCmd = &cobra.Command{
+	Use:   "start <branch>",
 	Short: "Creates a new feature branch off the main development branch",
 	Long: `Creates a new feature branch off the main development branch
 
@@ -28,7 +28,7 @@ Additionally, when there is a remote upstream,
 the main branch is synced with its upstream counterpart.
 This can be disabled by toggling the "new-branch-push-flag" configuration.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		config := getHackConfig(args)
+		config := getStartConfig(args)
 		stepList := getAppendStepList(config)
 		runState := steps.NewRunState("hack", stepList)
 		steps.Run(runState)
@@ -51,7 +51,7 @@ func getParentBranch(targetBranch string) string {
 	return git.GetMainBranch()
 }
 
-func getHackConfig(args []string) (result appendConfig) {
+func getStartConfig(args []string) (result appendConfig) {
 	result.TargetBranch = args[0]
 	result.ParentBranch = getParentBranch(result.TargetBranch)
 	if git.HasRemote("origin") && !git.IsOffline() {
@@ -62,6 +62,6 @@ func getHackConfig(args []string) (result appendConfig) {
 }
 
 func init() {
-	hackCmd.Flags().BoolVarP(&promptForParent, "prompt", "p", false, "Prompt for the parent branch")
-	RootCmd.AddCommand(hackCmd)
+	startCmd.Flags().BoolVarP(&promptForParent, "prompt", "p", false, "Prompt for the parent branch")
+	RootCmd.AddCommand(startCmd)
 }
