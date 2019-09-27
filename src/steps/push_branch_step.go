@@ -1,9 +1,9 @@
 package steps
 
 import (
-	"github.com/Originate/git-town/src/dryrun"
-	"github.com/Originate/git-town/src/git"
-	"github.com/Originate/git-town/src/script"
+	"github.com/bdewey/git-stack/src/dryrun"
+	"github.com/bdewey/git-stack/src/git"
+	"github.com/bdewey/git-stack/src/script"
 )
 
 // PushBranchStep pushes the branch with the given name to the origin remote.

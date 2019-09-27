@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/Originate/exit"
-	"github.com/Originate/git-town/src/cfmt"
+	"github.com/bdewey/git-stack/src/cfmt"
 	"github.com/fatih/color"
 )
 

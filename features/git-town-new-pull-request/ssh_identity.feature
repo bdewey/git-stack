@@ -20,5 +20,5 @@ Feature: git-town new-pull-request: when origin is an ssh identity
     Examples:
       | ORIGIN_HOSTNAME | PULL_REQUEST_URL                                                                                                                        |
       | bitbucket.org   | https://bitbucket.org/Originate/git-town/pull-request/new?dest=Originate%2Fgit-town%3A%3Amain&source=Originate%2Fgit-town%.*%3Afeature  |
-      | github.com      | https://github.com/Originate/git-town/compare/feature?expand=1                                                                          |
+      | github.com      | https://github.com/bdewey/git-stack/compare/feature?expand=1                                                                          |
       | gitlab.com      | https://gitlab.com/Originate/git-town/merge_requests/new?merge_request%5Bsource_branch%5D=feature&merge_request%5Btarget_branch%5D=main |

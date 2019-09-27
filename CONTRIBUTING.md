@@ -4,7 +4,7 @@ Git Town is a welcoming community,
 and we'd love for everyone to bring
 their contributions of any size to make it even better.
 
-- Found a bug or have an idea for a new feature? - [Open an issue](https://github.com/Originate/git-town/issues/new)
+- Found a bug or have an idea for a new feature? - [Open an issue](https://github.com/bdewey/git-stack/issues/new)
 - Fixed a bug or created a new feature that others will enjoy? - [Create a pull request](https://help.github.com/articles/using-pull-requests/)
 
 This guide will help you get started and outline some things you should know when developing Git Town.
@@ -24,7 +24,7 @@ This guide will help you get started and outline some things you should know whe
   - add `~/go/bin` to your `$PATH`
   - create the directory `~/go/src/github.com/Originate`
   - cd into that directory, and run `git clone git@github.com:Originate/git-town.git`
-  - cd into `$GOPATH/src/github.com/Originate/git-town`
+  - cd into `$GOPATH/src/github.com/bdewey/git-stack`
 - make sure you have `make` - Mac and Linux users should be okay,
   Windows users should install
   [Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm)
@@ -82,7 +82,7 @@ Please follow the existing code style.
 
 Each pull request (PR) should have the same (optional) description that it will
 have when committed later and include the
-[issue](https://github.com/Originate/git-town/issues) it resolves.
+[issue](https://github.com/bdewey/git-stack/issues) it resolves.
 
 When merging approved PRs:
 

@@ -3,7 +3,7 @@ package steps
 import (
 	"fmt"
 
-	"github.com/Originate/git-town/src/git"
+	"github.com/bdewey/git-stack/src/git"
 )
 
 // GetSyncBranchSteps returns the steps to sync the branch with the given name.

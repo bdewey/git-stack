@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	. "github.com/Originate/git-town/src/drivers"
+	. "github.com/bdewey/git-stack/src/drivers"
 	httpmock "gopkg.in/jarcoal/httpmock.v1"
 
 	. "github.com/onsi/ginkgo"

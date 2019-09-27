@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Originate/git-town/src/command"
-	"github.com/Originate/git-town/src/git"
+	"github.com/bdewey/git-stack/src/command"
+	"github.com/bdewey/git-stack/src/git"
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 )

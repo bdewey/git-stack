@@ -1,6 +1,6 @@
 package git
 
-import "github.com/Originate/git-town/src/command"
+import "github.com/bdewey/git-stack/src/command"
 
 // GetLocalAuthor returns the locally Git configured user
 func GetLocalAuthor() string {

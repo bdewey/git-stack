@@ -3,8 +3,8 @@ package prompt
 import (
 	"fmt"
 
-	"github.com/Originate/git-town/src/cfmt"
-	"github.com/Originate/git-town/src/git"
+	"github.com/bdewey/git-stack/src/cfmt"
+	"github.com/bdewey/git-stack/src/git"
 )
 
 // EnsureKnowsParentBranches asserts that the entire ancestry for all given branches

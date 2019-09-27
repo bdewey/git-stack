@@ -72,7 +72,7 @@ Feature: Syncing before creating the pull request
       | feature | git commit --no-edit                                                |
       |         | git push                                                            |
       |         | git stash pop                                                       |
-      | <none>  | open https://github.com/Originate/git-town/compare/feature?expand=1 |
+      | <none>  | open https://github.com/bdewey/git-stack/compare/feature?expand=1 |
     And I see a new GitHub pull request for the "feature" branch in the "Originate/git-town" repo in my browser
     And I am still on the "feature" branch
     And my workspace still contains my uncommitted file
@@ -91,7 +91,7 @@ Feature: Syncing before creating the pull request
       | BRANCH  | COMMAND                                                             |
       | feature | git push                                                            |
       |         | git stash pop                                                       |
-      | <none>  | open https://github.com/Originate/git-town/compare/feature?expand=1 |
+      | <none>  | open https://github.com/bdewey/git-stack/compare/feature?expand=1 |
     And I see a new GitHub pull request for the "feature" branch in the "Originate/git-town" repo in my browser
     And I am still on the "feature" branch
     And my workspace still contains my uncommitted file

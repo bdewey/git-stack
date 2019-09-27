@@ -1,7 +1,7 @@
 package drivers_test
 
 import (
-	"github.com/Originate/git-town/src/drivers"
+	"github.com/bdewey/git-stack/src/drivers"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )
@@ -26,7 +26,7 @@ var _ = Describe("CodeHostingDriver", func() {
 				})
 				Expect(result).NotTo(BeNil())
 				Expect(result.HostingServiceName()).To(Equal("GitHub"))
-				Expect(result.GetRepositoryURL()).To(Equal("https://self-hosted-github.com/Originate/git-town"))
+				Expect(result.GetRepositoryURL()).To(Equal("https://self-hosted-github.com/bdewey/git-stack"))
 			})
 
 			It("works with gitlab", func() {
@@ -58,7 +58,7 @@ var _ = Describe("CodeHostingDriver", func() {
 				})
 				Expect(result).NotTo(BeNil())
 				Expect(result.HostingServiceName()).To(Equal("GitHub"))
-				Expect(result.GetRepositoryURL()).To(Equal("https://github.com/Originate/git-town"))
+				Expect(result.GetRepositoryURL()).To(Equal("https://github.com/bdewey/git-stack"))
 			})
 
 			It("works with gitlab", func() {

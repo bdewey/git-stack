@@ -8,11 +8,11 @@ Feature: git-repo when origin is on GitHub
 
     Examples:
       | ORIGIN                                      |
-      | http://github.com/Originate/git-town.git    |
-      | http://github.com/Originate/git-town        |
-      | https://github.com/Originate/git-town.git   |
-      | https://github.com/Originate/git-town       |
+      | http://github.com/bdewey/git-stack.git    |
+      | http://github.com/bdewey/git-stack        |
+      | https://github.com/bdewey/git-stack.git   |
+      | https://github.com/bdewey/git-stack       |
       | git@github.com:Originate/git-town.git       |
       | git@github.com:Originate/git-town           |
-      | ssh://git@github.com/Originate/git-town.git |
-      | ssh://git@github.com/Originate/git-town     |
+      | ssh://git@github.com/bdewey/git-stack.git |
+      | ssh://git@github.com/bdewey/git-stack     |

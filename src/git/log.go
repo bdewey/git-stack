@@ -1,6 +1,6 @@
 package git
 
-import "github.com/Originate/git-town/src/command"
+import "github.com/bdewey/git-stack/src/command"
 
 // GetLastCommitMessage returns the commit message for the last commit
 func GetLastCommitMessage() string {

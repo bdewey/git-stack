@@ -1,6 +1,6 @@
 package steps
 
-import "github.com/Originate/git-town/src/script"
+import "github.com/bdewey/git-stack/src/script"
 
 // CreateBranchStep creates a new branch
 // but leaves the current branch unchanged.

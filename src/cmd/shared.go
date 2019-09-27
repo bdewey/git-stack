@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Originate/git-town/src/git"
-	"github.com/Originate/git-town/src/prompt"
-	"github.com/Originate/git-town/src/script"
-	"github.com/Originate/git-town/src/steps"
+	"github.com/bdewey/git-stack/src/git"
+	"github.com/bdewey/git-stack/src/prompt"
+	"github.com/bdewey/git-stack/src/script"
+	"github.com/bdewey/git-stack/src/steps"
 )
 
 // These variables represent command-line flags

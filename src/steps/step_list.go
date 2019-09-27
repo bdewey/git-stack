@@ -5,7 +5,7 @@ import (
 	"os"
 
 	"github.com/Originate/exit"
-	"github.com/Originate/git-town/src/git"
+	"github.com/bdewey/git-stack/src/git"
 )
 
 // StepList is a list of steps

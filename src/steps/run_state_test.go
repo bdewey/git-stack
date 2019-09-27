@@ -3,7 +3,7 @@ package steps_test
 import (
 	"encoding/json"
 
-	"github.com/Originate/git-town/src/steps"
+	"github.com/bdewey/git-stack/src/steps"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"

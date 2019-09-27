@@ -1,7 +1,7 @@
 package steps
 
 import (
-	"github.com/Originate/git-town/src/script"
+	"github.com/bdewey/git-stack/src/script"
 )
 
 // DiscardOpenChangesStep resets the branch to the last commit, discarding uncommitted changes.

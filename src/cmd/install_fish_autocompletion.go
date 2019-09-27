@@ -7,7 +7,7 @@ import (
 	"path"
 
 	"github.com/Originate/exit"
-	"github.com/Originate/git-town/src/util"
+	"github.com/bdewey/git-stack/src/util"
 	"github.com/spf13/cobra"
 )
 

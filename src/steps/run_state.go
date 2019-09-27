@@ -3,7 +3,7 @@ package steps
 import (
 	"time"
 
-	"github.com/Originate/git-town/src/git"
+	"github.com/bdewey/git-stack/src/git"
 )
 
 // UnfinishedRunStateDetails has details about an unfinished run state

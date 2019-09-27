@@ -4,7 +4,7 @@ import (
 	"os"
 
 	"github.com/Originate/exit"
-	"github.com/Originate/git-town/src/script"
+	"github.com/bdewey/git-stack/src/script"
 )
 
 // ChangeDirectoryStep changes the current working directory.

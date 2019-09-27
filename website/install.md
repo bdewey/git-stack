@@ -28,7 +28,7 @@ please use the manual install and ensure your Git version is 2.7.0 or higher._
 # Debian/Ubuntu based distros
 
 - Install / Update:
-  - Download the deb file from the latest release [here](https://github.com/Originate/git-town/releases).
+  - Download the deb file from the latest release [here](https://github.com/bdewey/git-stack/releases).
   - Run `dpkg -i /path/to/debfile`
 - Uninstall: run `apt-get remove gittown`
 
@@ -37,7 +37,7 @@ please use the manual install and ensure your Git version is 2.7.0 or higher._
 # Windows
 
 - Install / Update:
-  - Download the 32-bit or 64-bit executable for Windows from the latest release [here](https://github.com/Originate/git-town/releases).
+  - Download the 32-bit or 64-bit executable for Windows from the latest release [here](https://github.com/bdewey/git-stack/releases).
   - rename the file to `git-town.exe`
   - Put the file into the path and then Git will run it.
 
@@ -46,7 +46,7 @@ please use the manual install and ensure your Git version is 2.7.0 or higher._
 # Manual
 
 - Install: download the Git Town binary for your platform from the
-  [releases page](https://github.com/Originate/git-town/releases),
+  [releases page](https://github.com/bdewey/git-stack/releases),
   rename it to `git-town`, make it executable with `chmod +x git-town`
   and put it somewhere in your `$PATH`
 - Update: install the new version over the old version
@@ -65,6 +65,6 @@ please use the manual install and ensure your Git version is 2.7.0 or higher._
 #### Notifications about new releases
 
 - Subscribe to our
-  <a href="https://github.com/Originate/git-town/releases.atom">
+  <a href="https://github.com/bdewey/git-stack/releases.atom">
   release feed <i class="ion-social-rss accent-color"></i></a> to never miss a new release!
   If you prefer email notifications, please try [sibbell.com](https://sibbell.com).

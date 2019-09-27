@@ -3,8 +3,8 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/Originate/git-town/src/cfmt"
-	"github.com/Originate/git-town/src/git"
+	"github.com/bdewey/git-stack/src/cfmt"
+	"github.com/bdewey/git-stack/src/git"
 	"github.com/spf13/cobra"
 )
 

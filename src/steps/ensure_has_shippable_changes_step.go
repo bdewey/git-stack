@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/Originate/git-town/src/git"
+	"github.com/bdewey/git-stack/src/git"
 )
 
 // EnsureHasShippableChangesStep asserts that the branch has unique changes not on the main branch

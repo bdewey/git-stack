@@ -5,7 +5,7 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/Originate/git-town/src/util"
+	"github.com/bdewey/git-stack/src/util"
 	"github.com/acarl005/stripansi"
 )
 

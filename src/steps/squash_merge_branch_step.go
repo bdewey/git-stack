@@ -1,9 +1,9 @@
 package steps
 
 import (
-	"github.com/Originate/git-town/src/git"
-	"github.com/Originate/git-town/src/prompt"
-	"github.com/Originate/git-town/src/script"
+	"github.com/bdewey/git-stack/src/git"
+	"github.com/bdewey/git-stack/src/prompt"
+	"github.com/bdewey/git-stack/src/script"
 )
 
 // SquashMergeBranchStep squash merges the branch with the given name into the current branch

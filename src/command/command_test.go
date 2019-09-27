@@ -3,7 +3,7 @@ package command_test
 import (
 	"time"
 
-	"github.com/Originate/git-town/src/command"
+	"github.com/bdewey/git-stack/src/command"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"

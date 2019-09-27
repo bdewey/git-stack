@@ -1,7 +1,7 @@
 package steps
 
 import (
-	"github.com/Originate/git-town/src/script"
+	"github.com/bdewey/git-stack/src/script"
 )
 
 // FetchUpstreamStep brings the Git history of the local repository

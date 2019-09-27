@@ -16,15 +16,15 @@ Feature: git-new-pull-request when origin is on GitHub
     When I run `git-town new-pull-request`
 		Then I see a new pull request with this url in my browser:
 		  """
-			https://github.com/Originate/git-town/compare/feature?expand=1
+			https://github.com/bdewey/git-stack/compare/feature?expand=1
 			"""
 
     Examples:
       | ORIGIN                                    |
-      | http://github.com/Originate/git-town.git  |
-      | http://github.com/Originate/git-town      |
-      | https://github.com/Originate/git-town.git |
-      | https://github.com/Originate/git-town     |
+      | http://github.com/bdewey/git-stack.git  |
+      | http://github.com/bdewey/git-stack      |
+      | https://github.com/bdewey/git-stack.git |
+      | https://github.com/bdewey/git-stack     |
       | git@github.com:Originate/git-town.git     |
       | git@github.com:Originate/git-town         |
 
@@ -51,7 +51,7 @@ Feature: git-new-pull-request when origin is on GitHub
 
   Scenario Outline: proper URL encoding
     Given my repository has a feature branch named "<BRANCH_NAME>"
-    And my repo's remote origin is "https://github.com/Originate/git-town"
+    And my repo's remote origin is "https://github.com/bdewey/git-stack"
     And I am on the "<BRANCH_NAME>" branch
     When I run `git-town new-pull-request`
     Then I see a new pull request with this url in my browser:
@@ -61,10 +61,10 @@ Feature: git-new-pull-request when origin is on GitHub
 
     Examples:
       | BRANCH_NAME    | URL                                                                   |
-      | feature-branch | https://github.com/Originate/git-town/compare/feature-branch?expand=1 |
-      | feature_branch | https://github.com/Originate/git-town/compare/feature_branch?expand=1 |
-      | fix-#2         | https://github.com/Originate/git-town/compare/fix-%232?expand=1       |
-      | test/feature   | https://github.com/Originate/git-town/compare/test%2Ffeature?expand=1 |
+      | feature-branch | https://github.com/bdewey/git-stack/compare/feature-branch?expand=1 |
+      | feature_branch | https://github.com/bdewey/git-stack/compare/feature_branch?expand=1 |
+      | fix-#2         | https://github.com/bdewey/git-stack/compare/fix-%232?expand=1       |
+      | test/feature   | https://github.com/bdewey/git-stack/compare/test%2Ffeature?expand=1 |
 
 
   Scenario Outline: SSH style origin
@@ -74,13 +74,13 @@ Feature: git-new-pull-request when origin is on GitHub
     When I run `git-town new-pull-request`
 		Then I see a new pull request with this url in my browser:
 		  """
-			https://github.com/Originate/git-town/compare/feature?expand=1
+			https://github.com/bdewey/git-stack/compare/feature?expand=1
 			"""
 
 		Examples:
       | ORIGIN                                      |
-      | ssh://git@github.com/Originate/git-town.git |
-      | ssh://git@github.com/Originate/git-town     |
+      | ssh://git@github.com/bdewey/git-stack.git |
+      | ssh://git@github.com/bdewey/git-stack     |
 
 
   Scenario: nested feature branch with known parent

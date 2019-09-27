@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"unicode/utf8"
 
-	"github.com/Originate/git-town/src/cfmt"
-	"github.com/Originate/git-town/src/drivers"
-	"github.com/Originate/git-town/src/git"
+	"github.com/bdewey/git-stack/src/cfmt"
+	"github.com/bdewey/git-stack/src/drivers"
+	"github.com/bdewey/git-stack/src/git"
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 

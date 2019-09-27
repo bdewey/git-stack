@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"github.com/Originate/exit"
-	"github.com/Originate/git-town/src/command"
+	"github.com/bdewey/git-stack/src/command"
 )
 
 // ConfigMap represents the data from a call to

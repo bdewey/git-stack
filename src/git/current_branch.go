@@ -6,8 +6,8 @@ import (
 	"strings"
 
 	"github.com/Originate/exit"
-	"github.com/Originate/git-town/src/command"
-	"github.com/Originate/git-town/src/dryrun"
+	"github.com/bdewey/git-stack/src/command"
+	"github.com/bdewey/git-stack/src/dryrun"
 )
 
 // The current branch in cached in order to minimize the number of git commands run

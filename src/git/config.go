@@ -13,8 +13,8 @@ import (
 	"strings"
 
 	"github.com/Originate/exit"
-	"github.com/Originate/git-town/src/command"
-	"github.com/Originate/git-town/src/util"
+	"github.com/bdewey/git-stack/src/command"
+	"github.com/bdewey/git-stack/src/util"
 )
 
 var configMap *ConfigMap

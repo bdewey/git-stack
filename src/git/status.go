@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Originate/git-town/src/command"
-	"github.com/Originate/git-town/src/util"
+	"github.com/bdewey/git-stack/src/command"
+	"github.com/bdewey/git-stack/src/util"
 )
 
 // EnsureDoesNotHaveConflicts asserts that the workspace

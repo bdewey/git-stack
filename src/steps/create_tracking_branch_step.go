@@ -1,7 +1,7 @@
 package steps
 
 import (
-	"github.com/Originate/git-town/src/script"
+	"github.com/bdewey/git-stack/src/script"
 )
 
 // CreateTrackingBranchStep pushes the current branch up to origin

@@ -3,8 +3,8 @@ package git
 import (
 	"errors"
 
-	"github.com/Originate/git-town/src/command"
-	"github.com/Originate/git-town/src/util"
+	"github.com/bdewey/git-stack/src/command"
+	"github.com/bdewey/git-stack/src/util"
 )
 
 // IsOffline returns whether Git Town is currently in offline mode

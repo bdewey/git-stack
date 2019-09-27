@@ -2,9 +2,9 @@ package steps
 
 import (
 	"github.com/Originate/exit"
-	"github.com/Originate/git-town/src/drivers"
-	"github.com/Originate/git-town/src/git"
-	"github.com/Originate/git-town/src/script"
+	"github.com/bdewey/git-stack/src/drivers"
+	"github.com/bdewey/git-stack/src/git"
+	"github.com/bdewey/git-stack/src/script"
 )
 
 // DriverMergePullRequestStep squash merges the branch with the given name into the current branch

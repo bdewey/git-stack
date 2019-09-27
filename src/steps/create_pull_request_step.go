@@ -1,9 +1,9 @@
 package steps
 
 import (
-	"github.com/Originate/git-town/src/drivers"
-	"github.com/Originate/git-town/src/git"
-	"github.com/Originate/git-town/src/script"
+	"github.com/bdewey/git-stack/src/drivers"
+	"github.com/bdewey/git-stack/src/git"
+	"github.com/bdewey/git-stack/src/script"
 )
 
 // CreatePullRequestStep creates a new pull request for the current branch.

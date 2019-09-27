@@ -8,9 +8,9 @@ import (
 	"strings"
 
 	"github.com/Originate/exit"
-	"github.com/Originate/git-town/src/browsers"
-	"github.com/Originate/git-town/src/dryrun"
-	"github.com/Originate/git-town/src/git"
+	"github.com/bdewey/git-stack/src/browsers"
+	"github.com/bdewey/git-stack/src/dryrun"
+	"github.com/bdewey/git-stack/src/git"
 
 	"github.com/fatih/color"
 )

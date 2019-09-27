@@ -5,8 +5,8 @@ import (
 	"os"
 
 	"github.com/Originate/exit"
-	"github.com/Originate/git-town/src/git"
-	"github.com/Originate/git-town/src/util"
+	"github.com/bdewey/git-stack/src/git"
+	"github.com/bdewey/git-stack/src/util"
 
 	"github.com/fatih/color"
 )
