@@ -12,12 +12,11 @@ import (
 
 // RootCmd is the main Cobra object
 var RootCmd = &cobra.Command{
-	Use:   "git-town",
-	Short: "Generic, high-level Git workflow support",
-	Long: `Git Town makes software development teams who use Git even more productive and happy.
+	Use:   "git-stack",
+	Short: "Stacked pull request support for Github",
+	Long: `Git Stack simplifies the process of stacking pull requests for review on Github.
 
-It adds Git commands that support GitHub Flow, Git Flow, the Nvie model, GitLab Flow, and other workflows more directly,
-and it allows you to perform many common Git operations faster and easier.`,
+`,
 	PersistentPreRun: func(cmd *cobra.Command, args []string) {
 		command.SetDebug(debugFlag)
 	},
