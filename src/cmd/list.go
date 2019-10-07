@@ -19,8 +19,10 @@ type branchInfo struct {
 	Branch string
 	// IsCurrent is true if this is the user's current branch.
 	IsCurrent bool
-	// PrInfo is the name and number of a PR to merge this branch into its parent, if such a PR exists.
-	PrInfo string
+	// If it exists, the PR number. 0 otherwise.
+	PrNumber int
+	// If there is a PR, the merge state. Empty otherwise.
+	PrState string
 	// git log --oneline output of the commits that are unique to this branch
 	BranchCommits []string
 }
@@ -57,35 +59,55 @@ func getBranchInfo() []branchInfo {
 	driver := drivers.GetActiveDriver()
 	for i := range info {
 		if i > 0 {
-			canMerge, defaultCommitMessage, _ := driver.CanMergePullRequest(info[i].Branch, info[i-1].Branch)
-			if canMerge {
-				info[i].PrInfo = defaultCommitMessage
+			prExists, prNumber, prState, _ := driver.PullRequestStatus(info[i].Branch, info[i-1].Branch)
+			if prExists {
+				info[i].PrNumber = prNumber
+				info[i].PrState = prState
 			}
 			branchCommits, _ := script.RunCommandWithCombinedOutput("git", "log", "--no-merges", "--oneline", info[i-1].Branch+".."+info[i].Branch)
-			info[i].BranchCommits = strings.Split(string(branchCommits), "\n")
+			info[i].BranchCommits = strings.Split(strings.TrimSpace(string(branchCommits)), "\n")
 		}
 	}
 	return info
 }
 
 func printBranchInfo(branchInfo []branchInfo) {
-	w := tabwriter.NewWriter(os.Stdout, 0, 4, 0, ' ', 0)
-	fmt.Fprintln(w, "\t Branch\t Github PR")
+	var writerFlags uint = 0
+	var padChar byte = ' '
+	if debugFlag {
+		writerFlags |= tabwriter.Debug
+		padChar = '.'
+	}
+	w := tabwriter.NewWriter(os.Stdout, 0, 0, 1, padChar, writerFlags)
+	// fmt.Fprintln(w, "\t Branch\t Github PR\t")
 
-	for _, info := range branchInfo {
-		var currentMarker string
+	for i := len(branchInfo) - 1; i >= 0; i-- {
+		info := branchInfo[i]
+		var branchName, prNumberString string
 		if info.IsCurrent {
-			currentMarker = "*"
+			branchName = "*" + info.Branch
 		} else {
-			currentMarker = " "
+			branchName = info.Branch
+		}
+		if info.PrNumber != 0 {
+			prNumberString = fmt.Sprintf("#%d ", info.PrNumber)
+		} else {
+			prNumberString = ""
 		}
 		branchColor := color.New(color.Bold)
 		if info.IsCurrent {
 			branchColor = branchColor.Add(color.FgCyan)
 		}
-		fmt.Fprintln(w, currentMarker, "\t", branchColor.Sprint(info.Branch), "\t ", info.PrInfo)
-		for _, commit := range info.BranchCommits {
-			fmt.Fprintln(w, "\t\t ", commit)
+
+		// fmt.Fprintln(w, currentMarker, "\t", branchColor.Sprint(info.Branch), "\t ", info.PrInfo, "\t")
+		for i, commit := range info.BranchCommits {
+			var prefix string
+			if i == 0 {
+				prefix = fmt.Sprintf("%s\t%s", prNumberString, branchName)
+			} else {
+				prefix = "\t"
+			}
+			fmt.Fprintf(w, "%s\t%s\t\n", prefix, commit)
 		}
 	}
 	w.Flush()

@@ -42,6 +42,28 @@ func (d *githubCodeHostingDriver) CanMergePullRequest(branch, parentBranch strin
 	return true, d.getDefaultCommitMessage(pullRequests[0]), nil
 }
 
+func (d *githubCodeHostingDriver) PullRequestStatus(branch, parentBranch string) (bool, int, string, error) {
+	if d.apiToken == "" {
+		return false, 0, "", nil
+	}
+	d.connect()
+	pullRequests, err := d.getPullRequests(branch, parentBranch)
+	if err != nil {
+		return false, 0, "", err
+	}
+	if len(pullRequests) != 1 {
+		return false, 0, "", nil
+	}
+	return true, *pullRequests[0].Number, emptyStringIfNil(pullRequests[0].MergeableState), nil
+}
+
+func emptyStringIfNil(str *string) string {
+	if str == nil {
+		return ""
+	}
+	return *str
+}
+
 func (d *githubCodeHostingDriver) GetNewPullRequestURL(branch string, parentBranch string) string {
 	toCompare := branch
 	if parentBranch != git.GetMainBranch() {

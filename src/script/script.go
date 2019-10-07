@@ -84,7 +84,6 @@ func RunCommandSafe(cmd ...string) {
 }
 
 func RunCommandWithCombinedOutput(cmd ...string) ([]byte, error) {
-	PrintCommand(cmd...)
 	if dryrun.IsActive() {
 		if len(cmd) == 3 && cmd[0] == "git" && cmd[1] == "checkout" {
 			dryrun.SetCurrentBranchName(cmd[2])
