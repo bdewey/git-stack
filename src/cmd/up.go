@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"os"
 	"sort"
 
 	"github.com/bdewey/git-stack/src/script"
@@ -25,6 +26,7 @@ func moveToChildBranch() {
 	switch len(childBranches) {
 	case 0:
 		fmt.Println("At the top of the stack, nowhere to go!")
+		os.Exit(1)
 	case 1:
 		script.RunCommand("git", "checkout", childBranches[0])
 	default:
@@ -34,6 +36,7 @@ func moveToChildBranch() {
 		for _, childBranch := range childBranches {
 			fmt.Println(" -", childBranch)
 		}
+		os.Exit(1)
 	}
 }
 
