@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"sort"
 
 	"github.com/bdewey/git-stack/src/script"
 
@@ -28,6 +29,11 @@ func moveToChildBranch() {
 		script.RunCommand("git", "checkout", childBranches[0])
 	default:
 		fmt.Println("More than one child branch; don't know where to go!")
+		fmt.Println("Options:")
+		sort.Strings(childBranches)
+		for _, childBranch := range childBranches {
+			fmt.Println(" -", childBranch)
+		}
 	}
 }
 
