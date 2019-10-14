@@ -74,7 +74,7 @@ func buildAutocompletionDefinition() string {
 	commands := []autocompleteDefinition{
 		{name: "abort", description: abortCmd.Short},
 		{name: "continue", description: configCommand.Short},
-		{name: "hack", description: hackCmd.Short},
+		{name: "hack", description: startCmd.Short},
 		{name: "kill", description: killCommand.Short},
 		{name: "new-pull-request", description: newPullRequestCommand.Short},
 		{name: "prune-branches", description: pruneBranchesCommand.Short},

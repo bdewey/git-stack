@@ -12,6 +12,9 @@ type CodeHostingDriver interface {
 	// called when shipping. If true, also returns the default commit message
 	CanMergePullRequest(branch, parentBranch string) (bool, string, error)
 
+	// PullRequestStatus returns the PR number, if it exists, and whether it's green.
+	PullRequestStatus(branch, parentBranch string) (bool, int, string, error)
+
 	// GetNewPullRequestURL returns the URL of the page
 	// to create a new pull request online
 	GetNewPullRequestURL(branch, parentBranch string) string
